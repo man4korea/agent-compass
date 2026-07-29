@@ -1,9 +1,9 @@
-# repo-atlas
+# agent-compass
 
 **Give your AI coding agent a map of your codebase — so it stops editing the wrong file.**
 
 ```bash
-npx repo-atlas
+npx agent-compass
 ```
 
 No install. No account. No config. It reads your repo and writes `.atlas/ATLAS.md`.
@@ -18,7 +18,7 @@ In a real monorepo the same filename lives in four places. You say "fix the appr
 flow", the agent greps, picks the wrong copy, edits it confidently, and reports success.
 Nothing changes in the app. You lose an hour finding out why.
 
-That failure has a measurable cause: **name ambiguity**. `repo-atlas` measures it.
+That failure has a measurable cause: **name ambiguity**. `agent-compass` measures it.
 
 Run on the repo this tool was built in:
 
@@ -52,16 +52,16 @@ telling it to read the file first. It is plain markdown, so every agent can use 
 ## Usage
 
 ```bash
-npx repo-atlas                # map the current repo
-npx repo-atlas ../other-repo  # map another one
-npx repo-atlas --check        # print the numbers, write nothing
-npx repo-atlas --json         # machine readable, for CI
+npx agent-compass                # map the current repo
+npx agent-compass ../other-repo  # map another one
+npx agent-compass --check        # print the numbers, write nothing
+npx agent-compass --json         # machine readable, for CI
 ```
 
 Add it to CI and fail the build when ambiguity grows:
 
 ```bash
-npx repo-atlas --json | jq -e '.ambiguousHigh < 50'
+npx agent-compass --json | jq -e '.ambiguousHigh < 50'
 ```
 
 ## How it decides what is risky

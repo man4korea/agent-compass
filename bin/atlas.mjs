@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// repo-atlas CLI — 저장소를 훑어 AI 에이전트용 지도(.atlas/)를 만든다.
+// agent-compass CLI — 저장소를 훑어 AI 에이전트용 지도(.atlas/)를 만든다.
 // 설계 의도: 설치·설정·계정이 필요 없어야 한다. npx 한 줄로 자기 저장소의
 // 위험(동명 파일·중복 심볼)을 즉시 눈으로 보게 만드는 것이 이 도구의 판매 논리다.
 
@@ -18,7 +18,7 @@ const checkOnly = flag('--check')
 const t0 = Date.now()
 const files = collectFiles(root)
 if (!files.length) {
-  console.error('repo-atlas: no source files found. Run inside a code repository.')
+  console.error('agent-compass: no source files found. Run inside a code repository.')
   process.exit(1)
 }
 
@@ -60,7 +60,7 @@ if (!checkOnly) {
 
 const risky = report.ambiguousHigh + report.ambiguousMedium
 console.log('')
-console.log(`  repo-atlas — ${basename(root)}`)
+console.log(`  agent-compass — ${basename(root)}`)
 console.log(`  ${report.files.toLocaleString()} files · ${report.lines.toLocaleString()} lines · ${report.modules} modules · ${report.elapsedMs}ms`)
 console.log('')
 console.log(`  ⚠  ${risky} ambiguous filenames  (${report.ambiguousHigh} high risk)`)

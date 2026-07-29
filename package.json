@@ -1,11 +1,32 @@
 {
-  "name": "repo-atlas",
+  "name": "agent-compass",
   "version": "0.1.0",
   "description": "Give your AI coding agent a map of your codebase — so it stops editing the wrong file.",
   "type": "module",
-  "bin": { "repo-atlas": "bin/atlas.mjs" },
-  "files": ["bin", "src", "README.md"],
-  "keywords": ["ai", "agent", "claude", "cursor", "copilot", "codebase", "index", "monorepo"],
+  "bin": {
+    "agent-compass": "bin/atlas.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "ai",
+    "agent",
+    "claude",
+    "cursor",
+    "copilot",
+    "codebase",
+    "index",
+    "monorepo"
+  ],
   "license": "MIT",
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/man4korea/agent-compass.git"
+  }
 }
