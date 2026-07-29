@@ -77,6 +77,24 @@ the numbers. Generated type dumps are excluded.
 
 Zero dependencies. Node 18+.
 
+## Your code never leaves your machine
+
+This is the first thing you should check before running any tool on a private repo, so
+here it is in plain terms — verify it yourself, the whole thing is 3 files.
+
+- **No network calls.** There is no `fetch`, no HTTP client, no socket, no telemetry,
+  no "anonymous usage stats". `grep -r "fetch\|http" src/ bin/` returns nothing.
+- **Zero dependencies.** Nothing else gets installed, so no transitive package can
+  phone home either.
+- **No file contents are read out.** The map records file *paths*, line *counts*, and
+  exported *names*. Never the code inside, never comments, never strings, never `.env`.
+- **The only subprocess is `git ls-files`** — a local call, used to respect your
+  `.gitignore` so build output and archives do not pollute the numbers.
+- **Output is local files** under `.atlas/`. Nothing is uploaded anywhere.
+
+If your repo is private, `.atlas/` is as private as the repo. If you would rather not
+commit it at all, add `.atlas/` to `.gitignore` — the map is cheap to regenerate.
+
 ## Honest limits
 
 - Symbol extraction is regex-based, not a full parse. It is fast and language-agnostic;
